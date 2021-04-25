@@ -14,26 +14,22 @@ https://github.com/TuceYem/satu_webtech
 
 ## Projektname:
 
-satu_coinwallet
+satu_flashcards
 
 ### Projektbeschreibung:
 
-Coinwallet mit Echtzeit-Anzeige des Walletvermögens in EUR / USD
+Intelligentes, webbasiertes Karteikartenmanagementsystem
 
 ###### Funktionen / Inhalte:
 
 - Einloggen mit Username & Kennwort
 
-- Anzeige des individuellen Kontostandes in spez. Kryptowährung -> in DB gespeichert
+- Anlegen, Verändern und Löschen von persönlichen Karteikartenstapeln -> in DB gespeichert
 
-- Anbindung an Public API zur Echtzeit-Umrechung zwischen Kryptowährung und EUR / USD
+- Lernmodus: (Random-) Abfrage von Karteikarten innerhalb eines Stapels
 
-- Umbuchen von Walletwerten zwischen verschiedenen Usern
+- ggf. weitere Funktionserweiterung wie bspw. 
+    Feedback im Lernmodus -> Stapel werden ja nach Feedback für 
+    den nächsten Lernmodus sortiert und kategorisiert, damit Karten die man noch nicht auswendig kann häufiger abgefragt werden
 
-- ggf. weitere Funktionserweiterung
 
-###### Erläuterungen:
-
-- Alle Werte im Konto sind fiktiv, keine Darstellung von realen Walletadressen
-
-- Lediglich der Umrechungskurs ist real, da über API von coindesk bezogen
