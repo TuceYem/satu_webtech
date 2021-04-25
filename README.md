@@ -1,6 +1,6 @@
 Projektmitglieder:
 
-- Tuce (HIER ERGÄNZEN)
+- Tuce Yemisen (s0575696)
 
 - Sascha Huhne (s0573449)
 
