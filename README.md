@@ -32,4 +32,5 @@ Intelligentes, webbasiertes Karteikartenmanagementsystem
     Feedback im Lernmodus -> Stapel werden ja nach Feedback für 
     den nächsten Lernmodus sortiert und kategorisiert, damit Karten die man noch nicht auswendig kann häufiger abgefragt werden
 
-
+###### Benutzte Hilfestellungen / Sources:
+- Rest API: https://dzone.com/articles/how-to-create-rest-api-with-spring-boot / https://github.com/givanthak/spring-boot-rest-api-tutorial
