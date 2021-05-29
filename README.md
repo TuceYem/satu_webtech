@@ -2,7 +2,6 @@ Projektmitglieder:
 
 - Tuce Yemisen (s0575696)
 
-- Sascha Huhne (s0573449)
 
 
 
@@ -26,7 +25,7 @@ Intelligentes, webbasiertes Karteikartenmanagementsystem
 
 - Anlegen, Verändern und Löschen von persönlichen Karteikartenstapeln -> in DB gespeichert
 
-- Lernmodus: (Random-) Abfrage von Karteikarten innerhalb eines Stapels
+- Lernmodus: Abfrage von Karteikarten innerhalb eines Stapels
 
 - ggf. weitere Funktionserweiterung wie bspw. 
     Feedback im Lernmodus -> Stapel werden ja nach Feedback für 
