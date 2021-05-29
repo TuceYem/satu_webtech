@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:fragment="layout (template)" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:fragment="navbar" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,32 +7,39 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="http://fonts.cdnfonts.com/css/timmana" rel="stylesheet">
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">FlashOfThought</a>
+<nav class="navbar fixed-top  navbar-expand-lg  navbar-dark bg-dark">
+    <div class="container-fluid" style="margin-left:2%; margin-right:1%">
+        <!-- title in navbar - with svg the icon is added and linked to root to the homepage-->
+        <a class="navbar-brand" style="font-family: 'Timmana', sans-serif; font-size: 25px; padding-top: 17px" th:href="@{/index}" th:classappend="${#request.requestURI == '/index' ? 'active':''}">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="30" height="30"
+                 viewBox="0 0 226 226"
+                 style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#ffffff"><path d="M174.66106,1.62981l-97.24519,104.30769l28.52163,-4.34615l-36.39904,54.05529l27.70673,-3.53125l-46.72115,73.88462l94.52885,-97.24519l-28.52163,2.44471l44.27644,-56.5l-34.76923,9.50721zM113,26.07692c-47.80769,0 -86.92308,39.11538 -86.92308,86.92308c0,30.42308 14.83804,56.60187 38.30048,72.25481c1.73167,-3.46334 4.24429,-7.1304 5.97596,-10.59375c0.88282,-1.73167 1.90144,-2.64843 1.90144,-3.53125c-18.26742,-13.03846 -30.42308,-33.78456 -30.42308,-58.12981c0,-39.11538 31.23798,-70.35337 70.35337,-70.35337c3.46335,0 6.79087,-0.0679 11.13702,0.8149l13.03846,-13.85337c-6.96063,-2.61448 -14.66827,-3.53125 -23.36058,-3.53125zM161.6226,40.74519l-8.69231,14.125c18.26743,13.03846 30.42308,33.78456 30.42308,58.12981c0,39.11538 -31.23798,70.35337 -70.35337,70.35337c-2.61448,0 -6.07783,0.06791 -8.69231,-0.8149l-13.85337,13.85337c6.96063,1.73167 14.73618,2.71635 22.54567,2.71635c47.80769,0 86.92308,-39.11538 86.92308,-86.92308c0,-29.54026 -15.68689,-55.78696 -38.30048,-71.4399z"></path></g></g></svg>
+            FlashOfThought</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Study</a>
+                    <a class="nav-link" th:href="@{/study}" th:classappend="${#request.requestURI == '/study' ? 'active':''}">Study</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Add Flashcard</a>
+                    <a class="nav-link" th:href="@{/decks}" th:classappend="${#request.requestURI == '/decks' ? 'active':''}">Decks</a>
                 </li>
             </ul>
             <form class="d-flex">
                 <div>
-                    <button class="btn btn-ligh" type="submit">Register</button>
-                    <button class="btn btn-dark" type="submit">Login</button>
+                    <button class="btn btn-dark" type="submit">Register</button>
+                    <button class="btn btn-outline-warning" type="submit">Login</button>
                 </div>
             </form>
         </div>
     </div>
 </nav>
-
 </body>
 </html>

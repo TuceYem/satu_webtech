@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::body})}" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1> TEST</h1>
-</body>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="icon" href="https://img.icons8.com/metro/50/000000/the-flash-sign.png" type="image/icon type">
+        <!-- Font style-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <title>Home</title>
+    </head>
+    <body class="home-styling">
+        <div th:replace="~{layout ::navbar}" xmlns:th="http://www.w3.org/1999/xhtml"></div>
+            <div class="content-styling">
+                <h1 style="font-family: 'Alfa Slab One', cursive">Welcome Back <span style="color:#FACB33">Max Mustermann</span>...</h1>
+                <h2>Good to see you here. It is time to sharpen your knowledge!</h2>
+            </div>
+    </body>
 </html>
