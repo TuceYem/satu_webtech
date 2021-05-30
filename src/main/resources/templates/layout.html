@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:fragment="navbar" lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:fragment="navbar" lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
 <nav class="navbar fixed-top  navbar-expand-lg  navbar-dark bg-dark">
     <div class="container-fluid" style="margin-left:2%; margin-right:1%">
         <!-- title in navbar - with svg the icon is added and linked to root to the homepage-->
-        <a class="navbar-brand" style="font-family: 'Timmana', sans-serif; font-size: 25px; padding-top: 17px" th:href="@{/index}" th:classappend="${#request.requestURI == '/index' ? 'active':''}">
+        <a class="navbar-brand" style="font-family: 'Graphik Black',Arial Black,Sans-Serif" th:href="@{/index}" th:classappend="${#request.requestURI == '/index' ? 'active':''}">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                  width="30" height="30"
                  viewBox="0 0 226 226"
@@ -32,10 +32,16 @@
                     <a class="nav-link" th:href="@{/decks}" th:classappend="${#request.requestURI == '/decks' ? 'active':''}">Decks</a>
                 </li>
             </ul>
-            <form class="d-flex">
+            <div class="d-flex">
                 <div>
-                    <button class="btn btn-dark" type="submit">Register</button>
-                    <button class="btn btn-outline-warning" type="submit">Login</button>
+                    <div sec:authorize="!isAuthenticated()">
+                        <a class="btn btn-outline-warning" type="submit" th:href="@{/oauth2/authorization/okta}" th:classappend="${#request.requestURI == '/login' ? 'active':''}"}>Login</a>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <form id="logout-form" method="POST" action="#" th:action="@{/logout}">
+                            <button class="btn btn-outline-warning" type="submit" >Logout</button>
+                        </form>
+                    </div>
                 </div>
             </form>
         </div>

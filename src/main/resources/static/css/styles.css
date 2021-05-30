@@ -1,10 +1,10 @@
 h1{
-    padding-top:90px;
+    padding-top:150px;
 }
 
 .home-styling{
     /*background-image: url("https://images.unsplash.com/photo-1498084393753-b411b2d26b34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");*/
-    background-image: url("../images/bg-flash.jpg");
+    background-image: url("../images/homepage-pic.png");
     background-position: center top;
     background-size: 100% auto;
     font-family: "BentonBook",sans-serif;
