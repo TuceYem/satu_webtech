@@ -9,6 +9,7 @@ import project_webtech.satu.entity.Flashcard;
 import java.util.List;
 
 @RestController
+//@RequestMapping("/api/v1")
 public class FlashcardController {
 
     @Autowired

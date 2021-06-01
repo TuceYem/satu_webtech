@@ -31,6 +31,6 @@ public class CardRestController {
     @GetMapping(path =endpoints.STUDY)
     public ModelAndView showStudyPage(){ return new ModelAndView(viewNames.STUDY);}
 
-    @GetMapping(path =endpoints.DECKS)
-    public ModelAndView showDecksPage(){ return new ModelAndView(viewNames.DECKS);}
+    @GetMapping(path =endpoints.Edit)
+    public ModelAndView showDecksPage(){ return new ModelAndView(viewNames.EDIT);}
 }

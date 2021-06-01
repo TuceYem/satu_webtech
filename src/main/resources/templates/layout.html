@@ -11,6 +11,7 @@
 
 <body>
 
+
 <nav class="navbar fixed-top  navbar-expand-lg  navbar-dark bg-dark">
     <div class="container-fluid" style="margin-left:2%; margin-right:1%">
         <!-- title in navbar - with svg the icon is added and linked to root to the homepage-->
@@ -29,7 +30,7 @@
                     <a class="nav-link" th:href="@{/study}" th:classappend="${#request.requestURI == '/study' ? 'active':''}">Study</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/decks}" th:classappend="${#request.requestURI == '/decks' ? 'active':''}">Decks</a>
+                    <a class="nav-link" th:href="@{/edit}" th:classappend="${#request.requestURI == '/edit' ? 'active':''}">Edit</a>
                 </li>
             </ul>
             <div class="d-flex">

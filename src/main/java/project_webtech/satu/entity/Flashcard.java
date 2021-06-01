@@ -13,8 +13,6 @@ public class Flashcard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
-    @Column(name="deck", nullable = false)
-    private String deck;
     @Column(name="question", nullable = false)
     private String question;
     @Column(name="answer", nullable = false)
@@ -34,14 +32,6 @@ public class Flashcard {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDeck() {
-        return deck;
-    }
-
-    public void setDeck(String deck) {
-        this.deck = deck;
     }
 
     public String getQuestion() {
@@ -64,7 +54,6 @@ public class Flashcard {
     public String toString() {
         return "Flashcard{" +
                 "id=" + id +
-                ", deck='" + deck + '\'' +
                 ", question='" + question + '\'' +
                 ", answer='" + answer + '\'' +
                 '}';

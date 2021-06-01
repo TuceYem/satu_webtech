@@ -5,5 +5,5 @@ public class endpoints {
     public static final String INDEX="/index";
     public static final String SLASH_INDEX = "/";
     public static final String STUDY = "/study";
-    public static final String DECKS = "/decks";
+    public static final String Edit = "/edit";
 }
