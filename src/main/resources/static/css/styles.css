@@ -1,8 +1,14 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 .home-styling{
-    /*background-image: url("https://images.unsplash.com/photo-1498084393753-b411b2d26b34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");*/
     background-image: url("../images/homepage-pic.png");
     background-position:center bottom;
-    background-size: 100% auto;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -13,4 +19,10 @@
     margin-left: 10%;
 }
 
-
+/* fade in and out for showcasing answer to question*/
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
