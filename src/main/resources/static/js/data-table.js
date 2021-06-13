@@ -5,17 +5,17 @@ app.component("data-table",{
     template:`
         <div class="card" style="margin-bottom: 1%">
             <div class="card-body">
-            <form>
+            <form v-on:submit.prevent>
                 <div class="mb-3"  >
                     <label>Question</label>
-                    <input type="text" class="form-control" v-model="form.question" placeholder="Enter your question">
+                    <input type="text" class="form-control" v-model="question" placeholder="Enter your question">
                 </div>
 
                 <div class="mb-3" >
                     <label>Answer</label>
-                    <input type="text" class="form-control" v-model="form.answer" placeholder="Enter your answer">
+                    <input type="text" class="form-control" v-model="answer" placeholder="Enter your answer">
                 </div>
-                <button type="save" class="btn btn-primary" @submit="onSubmit">Save</button>
+                <button type="save" class="btn btn-primary" v-on:click="save()">Save</button>
             </form>
             </div>
         </div>
@@ -30,9 +30,9 @@ app.component("data-table",{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="formCard in formContent">
-                        <td>{{formCard.question}}</td>
-                        <td>{{formCard.answer}}</td>
+                    <tr v-for="flashcards in formContent">
+                        <td>{{flashcards.question}}</td>
+                        <td>{{flashcards.answer}}</td>
                         <td>
                             <button type="button" class="btn btn-danger btn-sm" style="margin-right:1%">
                               <!-- trash icon in svg format -->
@@ -58,14 +58,33 @@ app.component("data-table",{
     `,
     data() {
         return {
-            form:{
-                question:"",
-                answer:""
-            },
-            formContent:[
-                {question: "chair", answer:"Stuhl"}
-            ]
+            question:"",
+            answer:"",
+            formContent:[]
         };
+    },
+    methods: {
+        loadCardsInTable() {
+            axios.get("/flashcards")
+                .then(response => (this.formContent = response.data))
+        },
+        save() {
+            console.log("save");
+            axios.post("/flashcards/save", {
+                question: this.question,
+                answer: this.answer
+            })
+                .then((repsonse) => {
+                    this.question = "";
+                    this.answer = "";
+                    this.loadCardsInTable();
+                }, (error) => {
+                    console.log("Error: saving was not possible.")
+                });
+        }
+    },
+    mounted(){
+        this.loadCardsInTable();
     }
 });
 
