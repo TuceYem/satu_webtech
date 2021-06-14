@@ -30,11 +30,12 @@ app.component("data-table",{
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="flashcards in formContent">
+                    <!--source: https://stackoverflow.com/questions/43046332/how-to-remove-an-item-from-an-array-in-vue-js-->
+                    <tr v-for="(flashcards, index) in formContent">
                         <td>{{flashcards.question}}</td>
                         <td>{{flashcards.answer}}</td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-sm" style="margin-right:1%">
+                            <button type="button" class="btn btn-danger btn-sm" style="margin-right:1%" v-on:click="deleteCard(flashcards.id)">
                               <!-- trash icon in svg format -->
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -60,7 +61,7 @@ app.component("data-table",{
         return {
             question:"",
             answer:"",
-            formContent:[]
+            formContent:[],
         };
     },
     methods: {
@@ -69,7 +70,6 @@ app.component("data-table",{
                 .then(response => (this.formContent = response.data))
         },
         save() {
-            console.log("save");
             axios.post("/flashcards/save", {
                 question: this.question,
                 answer: this.answer
@@ -81,6 +81,15 @@ app.component("data-table",{
                 }, (error) => {
                     console.log("Error: saving was not possible.")
                 });
+        },
+        //Error 405 - nochmal bearbeiten (Parameter in Ordnung?)
+        deleteCard(itemIndex){
+            axios.delete("/flashcards/delete/"+ itemIndex)
+                .then((response) =>{
+                    this.loadCardsInTable();
+                }, (error) =>{
+                    console.log("Error: deleting was not possible.")
+                })
         }
     },
     mounted(){
