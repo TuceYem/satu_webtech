@@ -14,15 +14,15 @@ app.component("flashcards",{
                                 <strong>Question:</strong> 
                             </p>
                             <p style="font-size: large">
-                                {{showContent(key).question}}
+                                {{formContent[key].question}}
                             </p>
                             <button v-on:click="show = !show" type="button" class="btn btn-secondary">
                                 Answer
                             </button>
                             <transition name="fade">
-                                <p v-if="show">
-                                    {{showContent(key).answer}}
-                                </p>
+                            <p v-if="show">
+                                {{formContent[key].question}}
+                            </p>
                             </transition>
                         </div>
                     </div>
@@ -38,37 +38,27 @@ app.component("flashcards",{
         return{
             key:0,
             show: false,
-            form:{
-                question:"",
-                answer:""
-            },
-            formContent:[
-                {question: "okul", answer:"Schule"},
-                {question: "chair", answer:"Stuhl"},
-                {question: "desk", answer:"Schreibtisch"},
-                {question: "kalem", answer:"Stift"},
-                {question: "masa", answer:"Tisch"}
-            ]
+            formContent:[]
         };
     },
     methods: {
-        showContent(indexContent) {
-            return this.formContent[indexContent];
-        },
         deleteContentItem(indexDelete) {
             //if last item of array then remove it with index "0" - otherwise delete current item with current index
-            if (this.formContent.length === 1) {
-                this.formContent.splice(0, 1);
-            } else {
                 this.formContent.splice(this.formContent[indexDelete], 1);
                 this.checkOrderOfContent();
-            }
         },
         checkOrderOfContent() {
             //when at the end of the array (length-1 because arrays start to count at 0) then reset key to 0 - otherwise iterate key
-            this.key >= this.formContent.length - 1 ?
+            this.key >= this.formContent.length-1 ?
                 this.key = 0 : this.key++;
-        }
+        },
+        loadCardsInTable() {
+            axios.get("/flashcards")
+                .then(response => (this.formContent = response.data))
+        },
+    },
+    mounted(){
+        this.loadCardsInTable();
     }
 });
 
