@@ -30,8 +30,7 @@ app.component("data-table",{
                     </tr>
                 </thead>
                 <tbody>
-                    <!--source: https://stackoverflow.com/questions/43046332/how-to-remove-an-item-from-an-array-in-vue-js-->
-                    <tr v-for="(flashcards, index) in formContent">
+                    <tr v-for="flashcards in formContent">
                         <td>{{flashcards.question}}</td>
                         <td>{{flashcards.answer}}</td>
                         <td>
@@ -82,7 +81,6 @@ app.component("data-table",{
                     console.log("Error: saving was not possible.")
                 });
         },
-        //Error 405 - nochmal bearbeiten (Parameter in Ordnung?)
         deleteCard(itemIndex){
             axios.delete("/flashcards/delete/"+ itemIndex)
                 .then((response) =>{
