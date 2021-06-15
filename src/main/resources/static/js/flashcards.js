@@ -28,7 +28,7 @@ app.component("flashcards",{
                     </div>
                 <div>
                     <button type="button" class="btn btn-danger" style="float: left" v-on:click="checkOrderOfContent(); show=false">Again</button>
-                    <button type="button" class="btn btn-success" style="float: right" v-on:click="deleteContentItem(key); show=false">Good</button>
+                    <button type="button" class="btn btn-success" style="float: right" v-on:click="deleteContentItem(); show=false">Good</button>
                 </div>
             </div>
             <p v-if="formContent.length === 0"> Good Job!</p>
@@ -42,15 +42,22 @@ app.component("flashcards",{
         };
     },
     methods: {
-        deleteContentItem(indexDelete) {
+        deleteContentItem() {
             //if last item of array then remove it with index "0" - otherwise delete current item with current index
-                this.formContent.splice(this.formContent[indexDelete], 1);
-                this.checkOrderOfContent();
+                this.formContent.splice(this.key, 1);
+                if(this.key >= this.formContent.length-1) this.key = 0;
+                // this.checkOrderOfContent();
         },
         checkOrderOfContent() {
             //when at the end of the array (length-1 because arrays start to count at 0) then reset key to 0 - otherwise iterate key
-            this.key >= this.formContent.length-1 ?
-                this.key = 0 : this.key++;
+            console.log(this.key);
+            if(this.key >= this.formContent.length-1) {
+                this.key = 0;
+            }else{
+                this.key++;
+            }
+            // this.key >= this.formContent.length-1 ?
+            //     this.key = 0 : this.key++;
         },
         loadCardsInTable() {
             axios.get("/flashcards")
