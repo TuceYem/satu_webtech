@@ -15,7 +15,8 @@ app.component("data-table",{
                     <label>Answer</label>
                     <input type="text" class="form-control" v-model="answer" placeholder="Enter your answer">
                 </div>
-                <button type="save" class="btn btn-primary" v-on:click="save()">Save</button>
+                <button type="save" class="btn btn-primary" v-if="id === 0" v-on:click="save()">Save</button>
+                <button type="save" class="btn btn-primary" v-if="id !== 0" v-on:click="update(id)">Update</button>
             </form>
             </div>
         </div>
@@ -58,6 +59,7 @@ app.component("data-table",{
     `,
     data() {
         return {
+            id: 0,
             question:"",
             answer:"",
             formContent:[],
@@ -91,8 +93,24 @@ app.component("data-table",{
         },
         //update mittels id
         editCard(flashcards){
+            this.id = flashcards.id;
             this.question = flashcards.question;
             this.answer = flashcards.answer;
+        },
+        update(flashcards){
+            axios.put("/flashcards/update/" + flashcards.id,{
+                id : this.id,
+                question : this.question,
+                answer : this.answer
+            })
+                .then((response) => {
+                    this.question = "";
+                    this.answer = "";
+                    this.loadCardsInTable();
+                    this.id = 0;
+                }, (error) => {
+                    console.log("Error: updating was not possible.")
+            })
         }
     },
     mounted(){
