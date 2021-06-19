@@ -22,12 +22,7 @@ public class CardRestController {
         }
         return new ModelAndView(viewNames.INDEX, viewModelIndex);
     }
-/*
-    @GetMapping(path= endpoints.SLASH_INDEX)
-    public ModelAndView showIndexWithSlashPage(){
-        return new ModelAndView(viewNames.INDEX);
-    }
-*/
+
     @GetMapping(path =endpoints.STUDY)
     public ModelAndView showStudyPage(){ return new ModelAndView(viewNames.STUDY);}
 

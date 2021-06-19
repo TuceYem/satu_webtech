@@ -17,6 +17,7 @@ public class Flashcard {
     private String question;
     @Column(name="answer", nullable = false)
     private String answer;
+    private String owner;
 
     public Flashcard() {}
 
@@ -48,6 +49,14 @@ public class Flashcard {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     @Override
