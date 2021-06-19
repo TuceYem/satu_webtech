@@ -22,19 +22,19 @@ app.component("data-table",{
         </div>
 
         <div class="card" v-if="formContent.length > 0">
-            <table class="table">
+            <table class="table" >
                 <thead>
                     <tr>
                         <th scope="col">Question</th>
                         <th scope="col">Answer</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" width="10%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="flashcards in formContent">
                         <td>{{flashcards.question}}</td>
                         <td>{{flashcards.answer}}</td>
-                        <td>
+                        <td style="vertical-align: middle">
                             <button type="button" class="btn btn-danger btn-sm" style="margin-right:1%" v-on:click="deleteCard(flashcards.id)">
                               <!-- trash icon in svg format -->
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

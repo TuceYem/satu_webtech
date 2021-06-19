@@ -14,7 +14,7 @@ import java.util.Map;
 @Controller
 public class CardRestController {
 
-    @GetMapping(value=endpoints.INDEX)
+    @GetMapping(value= {endpoints.INDEX, endpoints.SLASH_INDEX})
     public ModelAndView getCurrentUser(@AuthenticationPrincipal OidcUser user){
         Map<String, String> viewModelIndex = new HashMap<>();
         if(user!=null) {
@@ -22,12 +22,12 @@ public class CardRestController {
         }
         return new ModelAndView(viewNames.INDEX, viewModelIndex);
     }
-
+/*
     @GetMapping(path= endpoints.SLASH_INDEX)
     public ModelAndView showIndexWithSlashPage(){
         return new ModelAndView(viewNames.INDEX);
     }
-
+*/
     @GetMapping(path =endpoints.STUDY)
     public ModelAndView showStudyPage(){ return new ModelAndView(viewNames.STUDY);}
 

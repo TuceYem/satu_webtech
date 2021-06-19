@@ -21,7 +21,7 @@ app.component("flashcards",{
                             </button>
                             <transition name="fade">
                             <p v-if="show">
-                                {{formContent[key].question}}
+                                {{formContent[key].answer}} 
                             </p>
                             </transition>
                         </div>
@@ -31,7 +31,11 @@ app.component("flashcards",{
                     <button type="button" class="btn btn-success" style="float: right" v-on:click="deleteContentItem(); show=false">Good</button>
                 </div>
             </div>
-            <p v-if="formContent.length === 0"> Good Job!</p>
+            <div v-if="formContent.length === 0">
+                <p><strong>Good Job!</strong><br><br>
+                Restart by refreshing your browser or add new cards in the 'Edit' tab.</p>
+                <img src="images/result.png" />
+            </div>
         </div>
     `,
     data(){
