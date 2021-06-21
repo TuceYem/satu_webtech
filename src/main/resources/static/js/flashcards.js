@@ -31,9 +31,10 @@ app.component("flashcards",{
                     <button type="button" class="btn btn-success" style="float: right" v-on:click="deleteContentItem(); show=false">Good</button>
                 </div>
             </div>
-            <div v-if="formContent.length === 0">
-                <p><strong>Good Job!</strong><br><br>
-                Restart by refreshing your browser or add new cards in the 'Edit' tab.</p>
+            <div v-if="formContent.length === 0 && loaded === true">
+                <p>
+                Add new cards in the 'Edit' tab or restart by refreshing the browser.
+                </p>
                 <img src="images/result.png" />
             </div>
         </div>
@@ -42,15 +43,16 @@ app.component("flashcards",{
         return{
             key:0,
             show: false,
+            //load v-if after data was loaded https://stackoverflow.com/questions/62830286/how-to-wait-until-data-is-loaded-for-showing-this-v-if-condition-correctly-in-vu
+            loaded: false,
             formContent:[]
         };
     },
     methods: {
         deleteContentItem() {
-            //if last item of array then remove it with index "0" - otherwise delete current item with current index
+                //if last item of array then remove it with index - iterate when possible
                 this.formContent.splice(this.key, 1);
                 if(this.key >= this.formContent.length-1) this.key = 0;
-                // this.checkOrderOfContent();
         },
         checkOrderOfContent() {
             //when at the end of the array (length-1 because arrays start to count at 0) then reset key to 0 - otherwise iterate key
@@ -60,12 +62,13 @@ app.component("flashcards",{
             }else{
                 this.key++;
             }
-            // this.key >= this.formContent.length-1 ?
-            //     this.key = 0 : this.key++;
         },
         loadCardsInTable() {
             axios.get("/flashcards")
-                .then(response => (this.formContent = response.data))
+                .then(response => (
+                    this.formContent = response.data,
+                    this.loaded = true
+                ))
         },
     },
     mounted(){

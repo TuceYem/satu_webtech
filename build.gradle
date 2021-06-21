@@ -23,6 +23,8 @@ dependencies {
 	implementation 'com.okta.spring:okta-spring-boot-starter:2.0.1'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//Mockito
+	testImplementation 'org.mockito:mockito-junit-jupiter:3.11.0'
 
 }
 
