@@ -29,5 +29,5 @@ jobs:
         JDBC_DATABASE_USERNAME: ${{secrets.JDBC_DATABASE_USERNAME}}
         JDBC_DATABASE_PASSWORD: ${{secrets.JDBC_DATABASE_PASSWORD}}
         OKTA_CLIENT_ID: ${{secrets.OKTA_CLIENT_ID}}
-        Okta_Client_SECRET: ${{secrets.Okta_Client_SECRET}}
+        Okta_Client_SECRET: ${{secrets.OKTA_CLIENT_SECRET}}
       run: ./gradlew build
