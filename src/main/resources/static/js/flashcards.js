@@ -1,7 +1,4 @@
-const app = Vue.createApp({});
-
-
-app.component("flashcards",{
+export default{
     template:`
         <div style="text-align: center">
             <p>
@@ -74,6 +71,4 @@ app.component("flashcards",{
     mounted(){
         this.loadCardsInTable();
     }
-});
-
-app.mount("#flashcards-component");
+}
