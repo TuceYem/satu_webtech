@@ -5,12 +5,12 @@ export default {
             <form v-on:submit.prevent>
                 <div class="mb-3"  >
                     <label>Question</label>
-                    <input type="text" class="form-control" v-model="question" placeholder="Enter your question">
+                    <input type="text" class="form-control" v-model="question" placeholder="Enter your question" required>
                 </div>
 
                 <div class="mb-3" >
                     <label>Answer</label>
-                    <input type="text" class="form-control" v-model="answer" placeholder="Enter your answer">
+                    <input type="text" class="form-control" v-model="answer" placeholder="Enter your answer" required>
                 </div>
                 <button type="save" class="btn btn-primary" v-if="id === 0" v-on:click="save()">Save</button>
                 <button type="save" class="btn btn-primary" v-if="id !== 0" v-on:click="update(id)">Update</button>
@@ -68,6 +68,7 @@ export default {
                 .then(response => (this.formContent = response.data))
         },
         save() {
+            if(this.question === "" || this.question.trim() === "" || this.answer === "" || this.answer.trim() === "") return;
             axios.post("/flashcards/save", {
                 question: this.question,
                 answer: this.answer
@@ -95,6 +96,7 @@ export default {
             this.answer = flashcards.answer;
         },
         update(flashcards){
+            if(this.question === "" || this.question.trim() === "" || this.answer === "" || this.answer.trim() === "") return;
             axios.put("/flashcards/update/" + flashcards.id,{
                 id : this.id,
                 question : this.question,
