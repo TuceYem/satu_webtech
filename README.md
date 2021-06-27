@@ -11,6 +11,10 @@ Projektmitglieder:
 
 https://github.com/TuceYem/satu_webtech
 
+### Heroku:
+
+https://flashcard-satu.herokuapp.com/
+
 ## Projektname:
 
 satu_flashcards
