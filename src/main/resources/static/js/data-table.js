@@ -1,7 +1,4 @@
-const app = Vue.createApp({});
-
-
-app.component("data-table",{
+export default {
     template:`
         <div class="card" style="margin-bottom: 1%">
             <div class="card-body">
@@ -116,6 +113,4 @@ app.component("data-table",{
     mounted(){
         this.loadCardsInTable();
     }
-});
-
-app.mount("#data-table-component");
+}

@@ -1,7 +1,10 @@
-function datatable(){
-    return 2;
-}
+import { mount } from '@vue/test-utils'
+import DataTable from './data-table.js'
+global.axios = require("axios");
 
-test("one plus one should be two", () => {
-    expect(datatable()).toBe(2);
+
+test("shows heading", () => {
+    const wrapper = mount(DataTable);
+
+    expect(wrapper.text()).toContain("There are no cards saved yet.");
 })
