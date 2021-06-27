@@ -29,8 +29,11 @@ export default{
                 </div>
             </div>
             <div v-if="formContent.length === 0 && loaded === true">
+                <p style="font-size: large">
+                  GOOD JOB!
+                </p>
                 <p>
-                Add new cards in the 'Edit' tab or restart by refreshing the browser.
+                  Add new cards in the 'Edit' tab or restart by refreshing the browser.
                 </p>
                 <img src="images/result.png" />
             </div>
