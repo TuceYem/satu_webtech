@@ -7,4 +7,3 @@ CREATE TABLE if not exist flashcards
     owner character varying(255) NOT NULL,
     CONSTRAINT flashcards_pk PRIMARY KEY (id)
 )
-alter table flashcards owner to lbbujmwymcdztk;
